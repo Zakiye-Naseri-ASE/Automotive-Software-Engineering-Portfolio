@@ -1,0 +1,19 @@
+# SPC5 Studio / Eclipse Compilation files
+bin/
+*.bin
+*.elf
+*.o
+*.exe
+*.dll
+Debug/
+Release/
+
+# SystemDesk & VEOS generated files
+*.osa
+*.vecu
+Build/
+RTE_Generated/
+System/ 
+
+# VS Code settings
+.vscode/
