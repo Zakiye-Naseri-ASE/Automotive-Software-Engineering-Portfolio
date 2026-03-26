@@ -21,6 +21,15 @@ The ECU transmits the following telemetry data to the dashboard every 100ms:
 *   **Speed (0x5A0):** Maps the physical potentiometer position to vehicle speed (0–240 km/h).
 *   **Indicators (0x470):** Controls Left/Right/Hazard blinkers based on physical switch inputs.
 
+## 🧪 Test Automation: CAN Log Parsing
+To validate the C-code implementation, I developed a Python script (`can_parser.py`) that acts as an automated validation tool for exported CAN bus traffic (`can_trace_log.csv`).
+
+**Capabilities of the Script:**
+*   Parses semicolon-separated trace files dynamically handling variable Data Length Codes (DLC).
+*   Extracts specific data bytes (e.g., `d1`, `d2`) and converts raw Hexadecimal payloads into human-readable decimal integers (e.g., converting hex `3A` to `58 km/h`).
+*   Automatically generates a `CAN_Test_Report.md` verifying that all expected signals were correctly transmitted on the bus.
+
+
 ## Technical Details
 *   **Protocol:** CAN 2.0A (Standard 11-bit ID) and CAN 2.0B (Extended 29-bit ID).
 *   **Tools:** Vector/TinyCAN Interface, Virtual Cockpit software.

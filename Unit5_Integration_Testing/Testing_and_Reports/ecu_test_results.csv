@@ -1,0 +1,4 @@
+Test_Case_ID;Module;Requirement_Covered;Result;Execution_Time_ms
+TC_001;Wiper_Auto_Mode;REQ-WIP-01;SUCCESS;1200
+TC_002;Wiper_Manual_Mode;REQ-WIP-02;SUCCESS;850
+TC_003;Rain_Sensor_Fail;REQ-WIP-03;FAILED;1050

@@ -25,3 +25,13 @@ The logic is encapsulated in the `AdasComposition` which sits between a Sensor S
 ## Simulation Environment
 *   **Simulator:** CE Virtual Car 2D (provides physics and visual feedback).
 *   **Execution:** The AUTOSAR V-ECU runs in **dSPACE VEOS**, exchanging data with the driving simulator in real-time.
+
+
+## 🧪 Test Automation: Software-in-the-Loop (SiL) Validation
+Instead of relying purely on visual confirmation in the 2D simulator, I implemented a Python evaluation script (`evaluate_adas.py`) to validate the AUTOSAR logic mathematically using the exported VEOS simulation trace (`veos_adas_log.csv`).
+
+**Automated Validation Logic:**
+The script reads the simulated vehicle speed and distance, and calculates the physical braking limit using the dynamic formula:
+`d = v^2 / (2 * a)` (where deceleration `a` = 10 m/s²).
+
+It checks every timestamp to assert that the `EmergencyBrake` SWC successfully triggers *only* when the distance falls below the calculated safety threshold, automatically generating an `ADAS_Test_Report.md` with pass/fail metrics for the execution timeline.
